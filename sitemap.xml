@@ -1,6 +1,4 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- Sitemap de Freekiland 3D. Al publicar, sustituye freekiland3d.com por tu dominio
-     real y actualiza <lastmod> cuando cambies el contenido de una página. -->
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://freekiland3d.com/index.html</loc>
@@ -33,4 +31,3 @@
     <priority>0.7</priority>
   </url>
 </urlset>
-
