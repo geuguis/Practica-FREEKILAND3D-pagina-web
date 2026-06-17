@@ -1,0 +1,212 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; frame-src https://www.google.com; connect-src 'self' https://api.web3forms.com; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="/vendor/js-detect.js"></script>
+  <meta name="description" content="Freekiland 3D · Estudio de diseño e impresión 3D personalizada en Sevilla desde 2014." />
+  <meta name="theme-color" content="#0a0f0d" />
+  <!-- Al publicar, sustituye freekiland3d.com por tu dominio real (canonical, OG, sitemap, JSON-LD) -->
+  <link rel="canonical" href="https://freekiland3d.com/index.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="Freekiland 3D" />
+  <meta property="og:url" content="https://freekiland3d.com/index.html" />
+  <meta property="og:title" content="Freekiland 3D · Imprime tus sueños" />
+  <meta property="og:description" content="Diseño e impresión 3D personalizada en Sevilla. Convertimos ideas en piezas únicas." />
+  <meta property="og:image" content="https://freekiland3d.com/imagenes/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Freekiland 3D · Imprime tus sueños" />
+  <meta name="twitter:description" content="Diseño e impresión 3D personalizada en Sevilla. Convertimos ideas en piezas únicas." />
+  <meta name="twitter:image" content="https://freekiland3d.com/imagenes/logo.png" />
+  <title>Freekiland 3D · Imprime tus sueños</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Store",
+        "@id": "https://freekiland3d.com/#store",
+        "name": "Freekiland 3D",
+        "description": "Estudio de diseño e impresión 3D personalizada en Sevilla desde 2014.",
+        "url": "https://freekiland3d.com/",
+        "logo": "https://freekiland3d.com/imagenes/logo.png",
+        "image": "https://freekiland3d.com/imagenes/logo.png",
+        "email": "info@freekiland3d.com",
+        "foundingDate": "2014",
+        "priceRange": "€€",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Plaza Aviador Ruiz de Alda, 2",
+          "addressLocality": "Sevilla",
+          "postalCode": "41004",
+          "addressCountry": "ES"
+        },
+        "openingHoursSpecification": [{
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "09:00",
+          "closes": "14:00"
+        }],
+        "sameAs": ["https://instagram.com/freekiland3d"]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://freekiland3d.com/#website",
+        "url": "https://freekiland3d.com/",
+        "name": "Freekiland 3D",
+        "inLanguage": "es-ES",
+        "publisher": { "@id": "https://freekiland3d.com/#store" }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="/imagenes/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/assets/css/estilos.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="seccion-logo">
+      <img src="/imagenes/logo.png" alt="Logo de Freekiland 3D" class="logo-img" />
+    </div>
+
+    <nav class="seccion-nav" id="menu-principal" aria-label="Menú principal">
+      <a href="/index.html">Inicio</a>
+      <a href="/paginas/servicios.html">Servicios</a>
+      <a href="/paginas/galeria.html">Galería</a>
+      <a href="/paginas/sobre-freekiland.html">Sobre Freekiland</a>
+      <a href="/paginas/contacto.html">Contacto</a>
+    </nav>
+
+    <div class="seccion-contacto">
+      <button type="button" id="enlace-carrito" class="enlace-carrito" aria-label="Abrir carrito">
+        <img src="/imagenes/carrito.png" alt="" class="carrito-img" />
+        <span id="contador-carrito" class="badge" aria-live="polite">0</span>
+      </button>
+      <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div data-barba="wrapper">
+  <main data-barba="container" data-barba-namespace="home">
+    <!-- HERO -->
+    <section class="hero">
+      <div class="slogan-box">
+        <h1 class="title">
+          <span class="aurora-text">Imprime tus sueños</span>
+          <img src="/imagenes/logo.png" alt="" class="slogan-logo" />
+        </h1>
+        <p class="subtitulo-hero">
+          Diseño e impresión 3D personalizada en Sevilla. Convertimos ideas en piezas únicas, con la calidad y el detalle que tu proyecto merece.
+        </p>
+      </div>
+
+      <div class="grid-inicio-tarjetas">
+        <article class="card-inicio">
+          <h2>¿Qué hacemos?</h2>
+          <p>
+            Transformamos ideas en objetos reales mediante diseño e impresión 3D a medida.
+            Desde una pieza única hasta un proyecto completo: figuras, bisutería, merchandising, trofeos, decoración y diseños propios.
+            Si lo puedes imaginar, podemos crearlo.
+          </p>
+          <a href="/paginas/galeria.html" class="boton-primario">Ver trabajos</a>
+        </article>
+
+        <article class="card-inicio">
+          <h2>Presupuestos</h2>
+          <p>
+            No hay dos ideas iguales. Cuéntanos qué tienes en mente, aunque no esté del todo
+            definido, y te asesoraremos sobre diseño, materiales y acabados.
+            Presupuestos claros, sin compromiso y adaptados a tu proyecto.
+          </p>
+          <a href="/paginas/contacto.html" class="boton-primario">Pedir presupuesto</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- DESTACADOS -->
+    <section class="seccion-destacados">
+      <h2 class="titulo reveal vidaloka-regular">Trabajos <img class="titulo-pill" src="/imagenes/fotos/marvel.jpg" alt="" width="96" height="44" loading="lazy" decoding="async" /> destacados</h2>
+      <p class="subtitulo reveal delay-1">Una selección de piezas que reflejan nuestra esencia.</p>
+      <div class="galeria-mini">
+        <a href="/paginas/galeria.html" class="cuadro-imagen reveal delay-1" aria-label="Ver la galería completa">
+          <img src="/imagenes/fotos/Chicapelomorado.jpg" alt="Figura de Jinx impresa en 3D" width="600" height="600" loading="lazy" decoding="async" />
+        </a>
+        <a href="/paginas/galeria.html" class="cuadro-imagen reveal delay-2" aria-label="Ver la galería completa">
+          <img src="/imagenes/fotos/marvel.jpg" alt="Logo de Marvel impreso en 3D" width="600" height="600" loading="lazy" decoding="async" />
+        </a>
+        <a href="/paginas/galeria.html" class="cuadro-imagen reveal delay-3" aria-label="Ver la galería completa">
+          <img src="/imagenes/fotos/alienverde.jpg" alt="Figura de Grogu (Star Wars) impresa en 3D" width="600" height="600" loading="lazy" decoding="async" />
+        </a>
+      </div>
+    </section>
+
+    <!-- POR QUÉ FREEKILAND -->
+    <section class="seccion-info-extra">
+      <div class="columna-info-izq reveal">
+        <h2 class="titulo-subrayado vidaloka-regular">¿Por qué Freekiland?</h2>
+        <div class="barra-blanca-gruesa"></div>
+        <p class="texto-grande">
+          Detrás de cada pieza hay personas, creatividad y pasión. Nos implicamos en cada proyecto
+          como si fuera propio: cuidamos los detalles, escuchamos tus ideas y te acompañamos
+          durante todo el proceso, desde el primer mensaje hasta la entrega final.
+          <br /><br />
+          Trato cercano, diseños exclusivos creados desde cero, cuidado por los acabados y
+          comunicación directa. En Freekiland 3D no solo imprimes una pieza: das forma a una idea.
+        </p>
+      </div>
+
+      <div class="separador-vertical-grueso reveal delay-1" aria-hidden="true"></div>
+
+      <div class="columna-info-der reveal delay-2">
+        <h2 class="vidaloka-regular">¿Tienes una idea en mente?</h2>
+        <a href="/paginas/contacto.html" class="boton-primario">Contactar</a>
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-marca">
+        <img src="/imagenes/logo.png" alt="" class="footer-logo" loading="lazy" />
+        <p class="footer-tagline">Estudio de diseño e impresión 3D en Sevilla. Convertimos ideas en piezas únicas desde 2014.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Enlaces del pie de página">
+        <p class="footer-titulo">Navegación</p>
+        <div class="footer-nav-links">
+          <a href="/index.html">Inicio</a>
+          <a href="/paginas/servicios.html">Servicios</a>
+          <a href="/paginas/galeria.html">Galería</a>
+          <a href="/paginas/sobre-freekiland.html">Sobre Freekiland</a>
+          <a href="/paginas/contacto.html">Contacto</a>
+        </div>
+      </nav>
+      <div>
+        <p class="footer-titulo">Contacto</p>
+        <div class="footer-contacto">
+          <a href="mailto:info@freekiland3d.com">info@freekiland3d.com</a>
+          <a href="https://instagram.com/freekiland3d" target="_blank" rel="noopener noreferrer">Instagram · @freekiland3d</a>
+          <span>Plaza Aviador Ruiz de Alda, 2 · Sevilla</span>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© 2014-2026 Freekiland 3D · Todos los derechos reservados</p>
+  </footer>
+
+  <!-- El modal del carrito lo inyecta carrito-app.js (evita duplicarlo en cada página) -->
+  <!-- Barba.js local: transiciones SPA con fundido entre páginas (degrada a navegación normal si falla) -->
+  <script src="/vendor/barba.umd.js" defer></script>
+  <script src="/assets/js/carrito-app.js" defer></script>
+</body>
+</html>
+

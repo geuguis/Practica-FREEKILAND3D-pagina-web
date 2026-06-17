@@ -1,0 +1,11 @@
+# robots.txt · Freekiland 3D
+# Al publicar, sustituye freekiland3d.com por tu dominio real.
+
+User-agent: *
+Allow: /
+
+# No tiene sentido indexar librerías ni documentación interna
+Disallow: /vendor/
+Disallow: /docs/
+
+Sitemap: https://freekiland3d.com/sitemap.xml
