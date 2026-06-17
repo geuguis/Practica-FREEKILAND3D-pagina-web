@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; frame-src https://www.google.com; connect-src 'self' https://api.web3forms.com; base-uri 'self'; form-action 'self'" />
+  <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <script src="vendor/js-detect.js"></script>
+  <meta name="description" content="Servicios de Freekiland 3D · Modelado, impresión 3D, prototipos y producción propia." />
+  <meta name="theme-color" content="#0a0f0d" />
+  <!-- Al publicar, sustituye freekiland3d.com por tu dominio real -->
+  <link rel="canonical" href="https://freekiland3d.com/servicios.html" />
+  <!-- Open Graph -->
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="es_ES" />
+  <meta property="og:site_name" content="Freekiland 3D" />
+  <meta property="og:url" content="https://freekiland3d.com/servicios.html" />
+  <meta property="og:title" content="Servicios · Freekiland 3D" />
+  <meta property="og:description" content="Modelado 3D personalizado, impresión 3D, prototipos y producción propia en Sevilla." />
+  <meta property="og:image" content="https://freekiland3d.com/imagenes/logo.png" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Servicios · Freekiland 3D" />
+  <meta name="twitter:description" content="Modelado 3D personalizado, impresión 3D, prototipos y producción propia en Sevilla." />
+  <meta name="twitter:image" content="https://freekiland3d.com/imagenes/logo.png" />
+  <title>Servicios · Freekiland 3D</title>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Inicio", "item": "https://freekiland3d.com/index.html" },
+          { "@type": "ListItem", "position": 2, "name": "Servicios", "item": "https://freekiland3d.com/servicios.html" }
+        ]
+      },
+      {
+        "@type": "Service",
+        "serviceType": "Diseño e impresión 3D",
+        "provider": { "@type": "Store", "name": "Freekiland 3D", "url": "https://freekiland3d.com/" },
+        "areaServed": { "@type": "City", "name": "Sevilla" },
+        "description": "Modelado 3D personalizado, impresión 3D, prototipos y producción propia.",
+        "hasOfferCatalog": {
+          "@type": "OfferCatalog",
+          "name": "Servicios de Freekiland 3D",
+          "itemListElement": [
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Modelado 3D personalizado" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Impresión 3D" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Prototipos y proyectos" } },
+            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Producción propia" } }
+          ]
+        }
+      }
+    ]
+  }
+  </script>
+  <link rel="icon" href="imagenes/logo.png" type="image/png" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="estilos.css" />
+</head>
+<body>
+  <header class="header">
+    <div class="seccion-logo">
+      <img src="imagenes/logo.png" alt="Logo de Freekiland 3D" class="logo-img" />
+    </div>
+
+    <nav class="seccion-nav" id="menu-principal" aria-label="Menú principal">
+      <a href="index.html">Inicio</a>
+      <a href="servicios.html">Servicios</a>
+      <a href="galeria.html">Galería</a>
+      <a href="sobre-freekiland.html">Sobre Freekiland</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+
+    <div class="seccion-contacto">
+      <button type="button" id="enlace-carrito" class="enlace-carrito" aria-label="Abrir carrito">
+        <img src="imagenes/carrito.png" alt="" class="carrito-img" />
+        <span id="contador-carrito" class="badge" aria-live="polite">0</span>
+      </button>
+      <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </header>
+
+  <div data-barba="wrapper">
+  <main data-barba="container" data-barba-namespace="servicios">
+    <section class="servicios-section">
+      <div class="contenedor-servicios">
+
+        <div class="servicios-intro reveal">
+          <h1 class="vidaloka-regular">¿Qué ofrecemos?</h1>
+          <p class="intro-texto">
+            En <span class="resaltado-verde">Freekiland 3D</span> ofrecemos soluciones de diseño e impresión 3D adaptadas a cada proyecto.
+            Tanto si tienes una idea clara como si solo una referencia, te acompañamos durante todo el proceso para conseguir el mejor resultado.
+          </p>
+        </div>
+
+        <div class="grid-servicios">
+          <article class="tarjeta-servicio reveal">
+            <span class="icono-servicio" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2 3 7l9 5 9-5-9-5z"/><path d="M3 17l9 5 9-5"/><path d="M3 12l9 5 9-5"/></svg>
+            </span>
+            <h3 class="vidaloka-regular">Modelado 3D personalizado</h3>
+            <p>Creamos diseños 3D desde cero y realizamos encargos totalmente personalizados según tus necesidades.</p>
+            <p>Trabajamos figuras, bisutería, merchandising, trofeos, objetos decorativos y piezas especiales, cuidando siempre el detalle y la funcionalidad.</p>
+            <p class="nota-servicio">Cada proyecto se diseña de forma exclusiva y se revisa contigo.</p>
+          </article>
+
+          <article class="tarjeta-servicio reveal delay-1">
+            <span class="icono-servicio" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 2 18 2 18 8 6 8 6 2"/><path d="M6 18h12v4H6z"/><path d="M3 8h18v10H3z"/><circle cx="9" cy="13" r="1"/></svg>
+            </span>
+            <h3 class="vidaloka-regular">Impresión 3D</h3>
+            <p>Fabricamos piezas con impresoras de alta calidad, cuidando tanto la precisión como el acabado final.</p>
+            <p>Seleccionamos el material más adecuado según el uso, buscando siempre el equilibrio entre resistencia, detalle y estética.</p>
+          </article>
+
+          <article class="tarjeta-servicio reveal delay-2">
+            <span class="icono-servicio" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20l9-5-9-5-9 5 9 5z"/><path d="M12 12V3"/><path d="M8 5l4-2 4 2"/></svg>
+            </span>
+            <h3 class="vidaloka-regular">Prototipos y proyectos</h3>
+            <p>Desarrollamos prototipos y piezas funcionales para pruebas, maquetas o proyectos en fase de desarrollo.</p>
+            <p>Te ayudamos a optimizar el diseño y mejorar la funcionalidad antes de la versión final.</p>
+          </article>
+
+          <article class="tarjeta-servicio reveal delay-3">
+            <span class="icono-servicio" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.39 4.84L20 8l-4 3.9.94 5.5L12 14.77 7.06 17.4 8 11.9 4 8l5.61-1.16L12 2z"/></svg>
+            </span>
+            <h3 class="vidaloka-regular">Producción propia</h3>
+            <p>Además de trabajos por encargo, en Freekiland 3D desarrollamos diseños propios que reflejan nuestra identidad creativa y el espíritu friki de la marca.</p>
+            <p class="nota-servicio">Estas piezas forman parte de nuestra colección original.</p>
+          </article>
+        </div>
+
+        <div class="proceso-trabajo reveal">
+          <h2 class="vidaloka-regular titulo-centro">¿Cómo trabajamos?</h2>
+          <div class="pasos-container">
+            <div class="paso-item">
+              <div class="numero-paso">1</div>
+              <p>Nos cuentas tu idea</p>
+            </div>
+            <div class="paso-item">
+              <div class="numero-paso">2</div>
+              <p>Diseñamos el modelo 3D</p>
+            </div>
+            <div class="paso-item">
+              <div class="numero-paso">3</div>
+              <p>Revisamos contigo</p>
+            </div>
+            <div class="paso-item">
+              <div class="numero-paso">4</div>
+              <p>Imprimimos y damos acabados</p>
+            </div>
+            <div class="paso-item">
+              <div class="numero-paso">5</div>
+              <p>Entrega final</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="cta-banner reveal">
+          <h2 class="vidaloka-regular">¿Empezamos tu proyecto?</h2>
+          <p>Cuéntanos qué tienes en mente y te asesoramos sin compromiso.</p>
+          <a href="contacto.html" class="boton-cta">Contactar ahora</a>
+        </div>
+
+      </div>
+    </section>
+  </main>
+  </div>
+
+  <footer class="footer">
+    <div class="footer-grid">
+      <div class="footer-marca">
+        <img src="imagenes/logo.png" alt="" class="footer-logo" loading="lazy" />
+        <p class="footer-tagline">Estudio de diseño e impresión 3D en Sevilla. Convertimos ideas en piezas únicas desde 2014.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Enlaces del pie de página">
+        <p class="footer-titulo">Navegación</p>
+        <div class="footer-nav-links">
+          <a href="index.html">Inicio</a>
+          <a href="servicios.html">Servicios</a>
+          <a href="galeria.html">Galería</a>
+          <a href="sobre-freekiland.html">Sobre Freekiland</a>
+          <a href="contacto.html">Contacto</a>
+        </div>
+      </nav>
+      <div>
+        <p class="footer-titulo">Contacto</p>
+        <div class="footer-contacto">
+          <a href="mailto:info@freekiland3d.com">info@freekiland3d.com</a>
+          <a href="https://instagram.com/freekiland3d" target="_blank" rel="noopener noreferrer">Instagram · @freekiland3d</a>
+          <span>Plaza Aviador Ruiz de Alda, 2 · Sevilla</span>
+        </div>
+      </div>
+    </div>
+    <p class="footer-copy">© 2014-2026 Freekiland 3D · Todos los derechos reservados</p>
+  </footer>
+
+  <!-- El modal del carrito lo inyecta carrito-app.js (evita duplicarlo en cada página) -->
+  <!-- Barba.js local: transiciones SPA con fundido entre páginas (degrada a navegación normal si falla) -->
+  <script src="vendor/barba.umd.js" defer></script>
+  <script src="carrito-app.js" defer></script>
+</body>
+</html>

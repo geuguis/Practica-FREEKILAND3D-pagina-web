@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/USUARIO/.claude/skills/ui-ux-pro-max/**)",
+      "Bash(python scripts/search.py \"3d printing studio ecommerce dark creative artisan portfolio\" --design-system -p \"Freekiland 3D\" -f markdown)",
+      "Bash(python scripts/search.py \"dark mode creative studio artisan handcraft premium\" --domain style -n 4)",
+      "Bash(python scripts/search.py \"dark premium ecommerce creative\" --domain color -n 4)",
+      "Bash(python scripts/search.py \"animation scroll microinteraction card hover\" --domain ux -n 4)",
+      "Bash(python scripts/search.py \"serif display geometric dark minimal\" --domain typography -n 3)",
+      "Bash(Remove-Item \"C:\\\\Users\\\\USUARIO\\\\Downloads\\\\Practica-FREEKILAND3D-pagina-web-main\\\\index2.html\" -Force)",
+      "Bash(Remove-Item \"C:\\\\Users\\\\USUARIO\\\\Downloads\\\\Practica-FREEKILAND3D-pagina-web-main\\\\estilos-v2.css\" -Force)",
+      "Bash(Write-Output \"Eliminados\")",
+      "Bash(npx skillfish *)",
+      "Bash(node --check carrito-app.js)"
+    ]
+  }
+}
