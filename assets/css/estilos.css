@@ -26,8 +26,6 @@
   --c-accent-3-dim: rgba(43, 113, 184, 0.08);
   --c-danger: #ff5660;
 
-  /* Aurora — recalibrada a la familia de marca (teal/menta/azul).
-     Antes era arcoíris (cian+magenta+oro): 4 acentos compitiendo entre sí */
   --aurora-1: #2cb6c9;
   --aurora-2: #45e0a2;
   --aurora-3: #1aab8a;
@@ -84,7 +82,6 @@ html {
 }
 html, body { min-height: 100%; }
 
-/* Tipografía con mejor reparto de líneas (no afecta a navegadores antiguos) */
 h1, h2, h3 { text-wrap: balance; }
 p { text-wrap: pretty; }
 

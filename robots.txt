@@ -1,5 +1,4 @@
 # robots.txt · Freekiland 3D
-# Al publicar, sustituye freekiland3d.com por tu dominio real.
 
 User-agent: *
 Allow: /

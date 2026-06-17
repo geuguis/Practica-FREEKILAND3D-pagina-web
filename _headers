@@ -1,8 +1,3 @@
-# Cabeceras de seguridad a nivel HTTP (Netlify / Cloudflare Pages).
-# A diferencia de las <meta http-equiv> del HTML, estas SÍ las aplica el
-# navegador para X-Frame-Options, X-Content-Type-Options y frame-ancestors.
-# Si publicas en otro hosting, usa el .htaccess (Apache) o el panel equivalente.
-/*
   Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; frame-src https://www.google.com; connect-src 'self' https://api.web3forms.com; base-uri 'self'; form-action 'self' https://api.web3forms.com; frame-ancestors 'self'; object-src 'none'
   X-Frame-Options: SAMEORIGIN
   X-Content-Type-Options: nosniff
