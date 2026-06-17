@@ -1,8 +1,0 @@
-Perfil de Empresa de Google (Google Business Profile) → es lo que mete tu tienda en el mapa con el pin. Esto, gratis, vale más que todo el código junto para un negocio local. Hoy no existe.
-Reseñas de clientes en Google.
-Enlaces desde otras webs apuntando a la tuya (directorios locales, prensa, Instagram con enlace…).
-Coherencia NAP: que tu nombre/dirección/teléfono sean idénticos en Google, redes y directorios.
-Los 3 frenos reales ahora mismo
-No está publicado. El SEO no hace absolutamente nada hasta que la web esté en vivo en un dominio. Hoy no posiciona para nada porque no existe en internet.
-Imágenes de 199 MB. Es el problema técnico más grave que queda. En móvil con 4G la web tardaría una eternidad en cargar y Google lo nota. Hay que comprimirlas (squoosh.app → WebP ~600px). Es el cambio de mayor impacto que te queda y no necesita programación.
-Dominio placeholder. Todo el SEO apunta a freekiland3d.com de ejemplo. Hasta que no pongas el dominio real, las señales apuntan a un sitio que no es el tuyo.
