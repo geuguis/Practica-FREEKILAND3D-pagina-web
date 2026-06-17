@@ -14,16 +14,15 @@ Al ser una maqueta funcional demostrativa, hay un par de detalles a tener en cue
 * **Pedidos por correo:** El carrito es totalmente funcional a nivel de cliente (lógica, almacenamiento y cálculo). Al pulsar "Solicitar pedido" se abre el correo del visitante con el resumen del carrito preparado para enviarlo a la tienda (no hay pasarela de pago, ya que no era un requisito de esta fase).
 
 ###  Configuración pendiente para producción
-* **Formulario de contacto:** por defecto usa `mailto:` como respaldo. Para envío real sin abrir el correo del visitante, crea una access key gratuita en [web3forms.com](https://web3forms.com) y pégala en la constante `WEB3FORMS_KEY` al inicio de `carrito-app.js`.
-* **Imágenes:** las fotos de `imagenes/` son originales de cámara (3–8 MB). Antes de publicar, redimensiónalas a ~600 px y conviértelas a WebP (por ejemplo con [squoosh.app](https://squoosh.app)) manteniendo los mismos nombres. El HTML ya tiene `loading="lazy"` y dimensiones declaradas.
-* **Open Graph:** en cada `<head>` hay metaetiquetas `og:*` con rutas relativas; al publicar, cámbialas por URL absolutas con el dominio final.
-* **Limpieza:** dentro de `imagenes/` hay un `.zip` de ~94 MB que no debe subirse al hosting.
+* **Formulario de contacto:** por defecto usa `mailto:` como respaldo. Falta crear una access key gratuita en [web3forms.com](https://web3forms.com) y pegarla en `WEB3FORMS_KEY` en `carrito-app.js`.
+* **Imágenes:** las fotos de `imagenes/` falta redimensionar a ~600 px y convertir a WebP, el HTML tiene `loading="lazy"` y dimensiones declaradas.
+* **Open Graph:** en cada `<head>` hay metaetiquetas `og:*` con rutas relativas; al publicar, cambiar por URL absolutas con el dominio final.
 
 ---
 
 ##  Características 
 
-Aunque es un prototipo, el proyecto cuenta con características avanzadas de desarrollo web:
+Aunque es un prototipo, el proyecto cuenta con características avanzadas, como:
 
 * **Diseño UI/UX Premium (Dark Aurora):** Interfaz oscura con acentos de neón, uso de *Glassmorphism* (`backdrop-filter`) y fondos animados mediante CSS puro.
 * **Carrito de Compras (Vanilla JS):** Sistema de carrito modular con persistencia de datos mediante `localStorage`. Permite añadir, eliminar y modificar cantidades en tiempo real.
