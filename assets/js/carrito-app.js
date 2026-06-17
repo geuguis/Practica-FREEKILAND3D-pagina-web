@@ -1,21 +1,18 @@
 (() => {
   'use strict';
 
+  const _base = document.querySelector('base')?.getAttribute('href') ?? '/';
+
   const STORAGE_KEY = 'freekiland_carrito_v2';
   const EMAIL_NEGOCIO = 'info@freekiland3d.com';
 
-  /* Para que el formulario de contacto envíe de verdad (sin abrir el correo
-     del visitante), crea una access key gratuita en https://web3forms.com
-     y pégala aquí. Mientras esté vacía, el formulario usa mailto como respaldo. */
   const WEB3FORMS_KEY = '';
 
   /* ---------------- UTIL ---------------- */
-  /* Escapa texto antes de insertarlo en innerHTML (nombres, rutas, etc.) */
   const esc = (str) => String(str).replace(/[&<>"']/g, c => ({
     '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;'
   }[c]));
 
-  /* Valida que una URL de imagen no use protocolos peligrosos */
   const sanitizeImagen = (url) => {
     if (!url || typeof url !== 'string') return '';
     const low = url.trim().toLowerCase();
@@ -23,8 +20,6 @@
     return url;
   };
 
-  /* ¿El usuario pidió menos movimiento? Una sola fuente de verdad para todo
-     el JS de animación (el CSS lo respeta aparte en su bloque @media). */
   const prefersReducedMotion = () =>
     window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -92,8 +87,6 @@
       const close = () => {
         if (closed) return;
         closed = true;
-        /* se elimina SIEMPRE, no solo al pulsar Escape: si no, el listener
-           se acumulaba con cada diálogo y re-disparaba onCancel */
         document.removeEventListener('keydown', keyHandler);
         overlay.classList.remove('visible');
         setTimeout(() => overlay.remove(), 280);
@@ -103,7 +96,6 @@
       const keyHandler = e => {
         if (e.key === 'Escape') { onCancel?.(); close(); }
         if (e.key === 'Tab') {
-          /* el foco circula solo entre los dos botones del diálogo */
           e.preventDefault();
           (document.activeElement === btnOk ? btnCancel : btnOk).focus();
         }
@@ -124,8 +116,6 @@
     load() {
       try {
         const raw = JSON.parse(localStorage.getItem(STORAGE_KEY)) || [];
-        /* sanea cada item: un dato corrupto en localStorage no debe
-           romper el render (p. ej. precio guardado como string) */
         this.items = (Array.isArray(raw) ? raw : [])
           .filter(i => i && i.id && i.nombre)
           .map(i => ({
@@ -207,14 +197,10 @@
             <li class="carrito-vacio">
               <svg class="carrito-vacio-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="8" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M2.05 2.05h2l2.66 12.42a2 2 0 0 0 2 1.58h9.78a2 2 0 0 0 1.95-1.57l1.65-7.43H5.12"/></svg>
               <p>Tu carrito está vacío</p>
-              <a href="/paginas/galeria.html" class="carrito-vacio-cta">Ver el catálogo</a>
+              <a href="${_base}paginas/galeria.html" class="carrito-vacio-cta">Ver el catálogo</a>
             </li>`;
           this._seen = new Set();
         } else {
-          /* qué ids ya estaban antes de este render: solo los productos
-             realmente nuevos animan su entrada (un +/- no re-anima la lista).
-             En el primer render (carga) _seen es undefined: sembramos sin animar
-             para que los productos guardados no entren "de cero". */
           const prev = this._seen;
           lista.innerHTML = this.items.map(i => `
             <li class="item-carrito" data-id="${esc(i.id)}">
@@ -239,8 +225,6 @@
                 const li = lista.querySelector(`.item-carrito[data-id="${CSS.escape(i.id)}"]`);
                 if (!li) return;
                 li.classList.add('item-entrando');
-                /* limpia la clase al terminar para que no se repita la
-                   entrada si el modal se cierra y se vuelve a abrir */
                 li.addEventListener('animationend',
                   () => li.classList.remove('item-entrando'), { once: true });
               }
@@ -272,8 +256,6 @@
         const { id, action } = btn.dataset;
         const li = btn.closest('.item-carrito');
 
-        /* quitar el último (×, o − cuando queda 1 unidad): primero animamos
-           el colapso del producto y luego lo eliminamos de verdad */
         const item = this.items.find(x => x.id === id);
         if (action === 'rm' || (action === 'dec' && item && item.cantidad <= 1)) {
           this._removeAnimated(id, li);
@@ -283,17 +265,12 @@
         if (action === 'inc') this.increase(id);
         else if (action === 'dec') this.decrease(id);
 
-        /* render() reconstruye la lista y destruye el botón pulsado:
-           devolvemos el foco al control equivalente (a11y teclado) */
         const again = lista.querySelector(`[data-action="${action}"][data-id="${CSS.escape(id)}"]`);
         (again || document.getElementById('btn-cerrar-carrito'))?.focus();
-        this._pulseQty(lista, id);   // rebote del número tras el cambio
+        this._pulseQty(lista, id);
       });
     },
 
-    /* Colapsa un producto (alto, opacidad y desplazamiento) antes de eliminarlo,
-       para que la lista no pegue un salto. Mide la altura real para que el
-       colapso de max-height sea exacto sin recortes. */
     _removeAnimated(id, li) {
       if (!li || prefersReducedMotion()) {
         this.remove(id);
@@ -301,7 +278,7 @@
         return;
       }
       li.style.maxHeight = li.offsetHeight + 'px';
-      void li.offsetHeight;                       // fija la altura inicial
+      void li.offsetHeight;
       li.classList.add('item-saliendo');
       requestAnimationFrame(() => { li.style.maxHeight = '0px'; });
 
@@ -309,22 +286,21 @@
       const finish = () => {
         if (done) return;
         done = true;
-        this.remove(id);                          // guarda + re-render
+        this.remove(id);
         document.getElementById('btn-cerrar-carrito')?.focus();
       };
       li.addEventListener('transitionend', e => {
         if (e.propertyName === 'max-height') finish();
       });
-      setTimeout(finish, 450);                    // respaldo si no llega transitionend
+      setTimeout(finish, 450);
     },
 
-    /* Rebote breve del número de cantidad tras +/- (el nodo es nuevo tras render) */
     _pulseQty(lista, id) {
       if (prefersReducedMotion()) return;
       const num = lista.querySelector(`.item-carrito[data-id="${CSS.escape(id)}"] .qty-num`);
       if (!num) return;
       num.classList.remove('qty-pop');
-      void num.offsetWidth;                        // reinicia la animación en pulsaciones rápidas
+      void num.offsetWidth;
       num.classList.add('qty-pop');
     }
   };
@@ -366,8 +342,6 @@
     _lastFocus: null,
 
     _setBackgroundInert(inerte) {
-      /* mientras el modal está abierto, el contenido de detrás no recibe
-         foco ni clicks (Tab no se escapa del diálogo) */
       document.querySelectorAll('main, .header, .footer').forEach(el => { el.inert = inerte; });
     },
 
@@ -413,8 +387,6 @@
         });
       });
 
-      /* Solicitud de pedido real por correo (antes era una pasarela simulada
-         que "cobraba" sin cobrar: confundía al usuario) */
       document.querySelector('.boton-checkout')?.addEventListener('click', () => {
         if (Cart.items.length === 0) {
           Toast.show('Añade productos antes de solicitar el pedido', 'warning');
@@ -450,8 +422,6 @@
       const nav = header?.querySelector('.seccion-nav');
       if (!header || !nav) return;
 
-      /* el botón vive en el HTML (mejor sin-JS); si una página antigua
-         no lo tuviera, se crea aquí como respaldo */
       let btn = header.querySelector('.nav-toggle');
       if (!btn) {
         btn = document.createElement('button');
@@ -481,8 +451,6 @@
       this.setActive();
     },
 
-    /* el enlace activo cambia en cada navegación (también con Barba);
-       se llama desde initPage, no solo al cargar */
     setActive() {
       const nav = document.querySelector('.header .seccion-nav');
       if (!nav) return;
@@ -529,10 +497,6 @@
 
   /* ---------------- CONTACT FORM ---------------- */
   const ContactForm = {
-    /* Anti-abuso del lado cliente: una espera mínima entre envíos para que no se
-       pueda machacar el formulario en bucle. NO es seguridad real (se salta
-       desde la consola); el límite de verdad lo aplica Web3Forms en su servidor.
-       Es una capa de cortesía contra el spam accidental y los clics dobles. */
     COOLDOWN_MS: 30000,
     _lastSubmit: 0,
 
@@ -567,11 +531,8 @@
           return;
         }
 
-        /* validación superada: arranca la ventana de espera entre envíos */
         this._lastSubmit = Date.now();
 
-        /* Sin access key configurada: respaldo con el correo del visitante.
-           Antes había una simulación que decía "mensaje recibido" sin enviar nada. */
         if (!WEB3FORMS_KEY) {
           const body = `Nombre: ${nombre}\nEmail: ${email}\n\n${mensaje}`;
           location.href = `mailto:${EMAIL_NEGOCIO}?subject=${encodeURIComponent('Consulta desde la web')}&body=${encodeURIComponent(body)}`;
@@ -645,29 +606,20 @@
   };
 
   /* ---------------- MARQUEE · cintas de imágenes con loop GSAP ---------------- */
-  /* Sustituye la animación CSS por un loop infinito fluido controlado por GSAP.
-     Como las imágenes del HTML están duplicadas (el set aparece 2 veces),
-     animar xPercent a -50 recorre exactamente un ciclo: bucle sin costuras y,
-     al ser porcentual, sigue siendo perfecto aunque cambie el ancho. */
   const Marquee = {
     _loading: false,
     init() {
       const tracks = document.querySelectorAll('.marquee-interno');
-      if (!tracks.length) return;                 // solo existe en galeria.html
-      // respeta prefers-reduced-motion: no se arranca el loop y las imágenes
-      // quedan quietas (el bloque reduced-motion del CSS ya pone animation:none)
+      if (!tracks.length) return;
       if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return;
-      // evita re-inicializar cintas ya controladas (p. ej. si initPage se repite)
       const pendientes = [...tracks].filter(t => !t.classList.contains('gsap-on'));
       if (!pendientes.length) return;
 
       if (typeof gsap === 'undefined') {
-        // Barba pudo traernos a la galería sin ejecutar el <script> de GSAP de su
-        // <head>; lo cargamos bajo demanda. Si falla, queda el fallback CSS.
         if (this._loading) return;
         this._loading = true;
         const s = document.createElement('script');
-        s.src = '/vendor/gsap.min.js';
+        s.src = _base + 'vendor/gsap.min.js';
         s.onload = () => { this._loading = false; this._start(pendientes); };
         s.onerror = () => { this._loading = false; };
         document.head.appendChild(s);
@@ -678,9 +630,8 @@
 
     _start(tracks) {
       tracks.forEach(track => {
-        track.classList.add('gsap-on');            // apaga el @keyframes de esta cinta
+        track.classList.add('gsap-on');
 
-        // px/s según la clase de velocidad del diseño (slow / normal / fast)
         const speed = track.classList.contains('slow') ? 26
                     : track.classList.contains('fast') ? 60
                     : 40;
@@ -693,8 +644,6 @@
           repeat: -1
         });
 
-        // al pasar el ratón, el timeScale baja suavemente (ralentiza, no para);
-        // al salir, vuelve a velocidad normal con la misma suavidad
         const wrapper = track.closest('.marquee-externo');
         if (wrapper) {
           const ease = (ts) => gsap.to(loop, { timeScale: ts, duration: 0.6, ease: 'power2.out', overwrite: true });
@@ -702,7 +651,6 @@
           wrapper.addEventListener('mouseleave', () => ease(1));
         }
 
-        // al redimensionar, recalcula la duración para mantener px/s constante
         let rT;
         window.addEventListener('resize', () => {
           clearTimeout(rT);
@@ -713,7 +661,6 @@
   };
 
   /* ---------------- LEGACY GLOBAL ---------------- */
-  // Mantiene compatibilidad con onclick="agregarAlCarrito(...)" si quedara alguno.
   window.agregarAlCarrito = (nombre, precio, imagen = '') => {
     Cart.add({
       id: `legacy-${nombre}`,
@@ -724,18 +671,16 @@
   };
 
   /* ---------------- PAGE INIT ---------------- */
-  /* Lo que depende del contenido de cada página. Se ejecuta en la primera
-     carga y de nuevo tras cada transición Barba (el <main> es nuevo). */
   function initPage() {
-    Nav.setActive();        // enlace activo del nav según la URL actual
-    Reveal.init();          // observa los .reveal del nuevo contenedor (incluye la secuencia del proceso)
-    ContactForm.init();     // enlaza el formulario si esta página lo tiene
-    Marquee.init();         // arranca las cintas si esta página las tiene
+    Nav.setActive();
+    Reveal.init();
+    ContactForm.init();
+    Marquee.init();
   }
 
   /* ---------------- BARBA · transiciones SPA con fundido ---------------- */
   function setupBarba() {
-    if (typeof barba === 'undefined') return;   // sin Barba: sitio multipágina normal (carga completa)
+    if (typeof barba === 'undefined') return;
 
     const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
     const fade = (el, from, to) => el.animate(
@@ -743,31 +688,26 @@
       { duration: reduced() ? 0 : 300, easing: 'cubic-bezier(0.22, 1, 0.36, 1)', fill: 'forwards' }
     ).finished;
 
-    // cierra el carrito al navegar (el modal es persistente y quedaría abierto)
     barba.hooks.before(() => CartUI.close());
 
     barba.init({
       transitions: [{
         name: 'fade',
-        // fundido de salida del contenido actual
         leave(data) {
-          // saca el contenedor saliente del flujo para que el entrante no salte
           data.current.container.style.position = 'absolute';
           data.current.container.style.width = '100%';
-          // oculta el entrante desde ya: evita un parpadeo durante la salida
           if (data.next && data.next.container) data.next.container.style.opacity = '0';
           return fade(data.current.container, 1, 0);
         },
         beforeEnter() {
-          window.scrollTo(0, 0);  // nueva página = arriba del todo
+          window.scrollTo(0, 0);
         },
-        // fundido de entrada del contenido nuevo
         enter(data) {
           return fade(data.next.container, 0, 1);
         },
         afterEnter(data) {
-          data.next.container.style.opacity = '1';  // fija el estado final (limpia la animación)
-          initPage();                               // re-inicializa la página recién entrada
+          data.next.container.style.opacity = '1';
+          initPage();
         }
       }]
     });
@@ -775,19 +715,17 @@
 
   /* ---------------- BOOT ---------------- */
   document.addEventListener('DOMContentLoaded', () => {
-    /* Inits globales: una sola vez. Operan sobre elementos persistentes
-       (header, footer y el modal del carrito, todos fuera del contenedor Barba). */
     Toast.init();
     CartModal.ensure();
     Cart.load();
     Cart.bind();
     Cart.render();
     CartUI.bind();
-    Nav.init();        // enlaza la hamburguesa una vez (el header persiste entre páginas)
+    Nav.init();
     HeaderFX.init();
-    Galeria.init();    // delegación de clicks en document: una vez, vale para todo el contenido futuro
+    Galeria.init();
 
-    initPage();        // primera página
-    setupBarba();      // activa las transiciones SPA si Barba está disponible
+    initPage();
+    setupBarba();
   });
 })();

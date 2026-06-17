@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 ﻿# Freekiland 3D
+=======
+# Freekiland 3D
+>>>>>>> 31db61d70f2089052762ef7cbfa150d2f83a0a08
 
 > Estudio de diseño e impresión 3D personalizada en Sevilla (España), fundado en 2014. Convierte ideas en piezas únicas: figuras, bisutería, merchandising, trofeos, decoración y diseños propios. Trato cercano y artesanal, presupuestos sin compromiso.
 
@@ -11,10 +15,17 @@
 
 ## Páginas
 - [Inicio](https://freekiland3d.com/index.html): qué hacen y por qué Freekiland 3D
+<<<<<<< HEAD
 - [Servicios](https://freekiland3d.com/paginas/servicios.html): modelado 3D personalizado, impresión 3D, prototipos y producción propia
 - [Galería](https://freekiland3d.com/paginas/galeria.html): catálogo por categorías (merchandising, trofeos, bisutería, anime, producción propia) con precios
 - [Sobre Freekiland](https://freekiland3d.com/paginas/sobre-freekiland.html): historia y equipo
 - [Contacto](https://freekiland3d.com/paginas/contacto.html): formulario, ubicación, horario y contacto directo
+=======
+- [Servicios](https://freekiland3d.com/servicios.html): modelado 3D personalizado, impresión 3D, prototipos y producción propia
+- [Galería](https://freekiland3d.com/galeria.html): catálogo por categorías (merchandising, trofeos, bisutería, anime, producción propia) con precios
+- [Sobre Freekiland](https://freekiland3d.com/sobre-freekiland.html): historia y equipo
+- [Contacto](https://freekiland3d.com/contacto.html): formulario, ubicación, horario y contacto directo
+>>>>>>> 31db61d70f2089052762ef7cbfa150d2f83a0a08
 
 ## Cómo trabajan
 1. Cuentas tu idea (mensaje o visita en tienda)
@@ -25,4 +36,7 @@
 ## Notas
 - Pedidos del catálogo y presupuestos se gestionan por correo; no hay pasarela de pago online.
 - Al publicar, sustituye freekiland3d.com por el dominio real.
+<<<<<<< HEAD
 
+=======
+>>>>>>> 31db61d70f2089052762ef7cbfa150d2f83a0a08

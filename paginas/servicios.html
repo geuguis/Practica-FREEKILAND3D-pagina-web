@@ -2,11 +2,13 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8" />
+  <!-- Al desplegar en tu dominio propio, cambia href a / -->
+  <base href="/Practica-FREEKILAND3D-pagina-web/" />
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' https: data:; frame-src https://www.google.com; connect-src 'self' https://api.web3forms.com; base-uri 'self'; form-action 'self'" />
   <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <script src="/vendor/js-detect.js"></script>
+  <script src="vendor/js-detect.js"></script>
   <meta name="description" content="Servicios de Freekiland 3D · Modelado, impresión 3D, prototipos y producción propia." />
   <meta name="theme-color" content="#0a0f0d" />
   <!-- Al publicar, sustituye freekiland3d.com por tu dominio real -->
@@ -55,29 +57,29 @@
     ]
   }
   </script>
-  <link rel="icon" href="/imagenes/logo.png" type="image/png" />
+  <link rel="icon" href="imagenes/logo.png" type="image/png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Vidaloka&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="/assets/css/estilos.css" />
+  <link rel="stylesheet" href="assets/css/estilos.css" />
 </head>
 <body>
   <header class="header">
     <div class="seccion-logo">
-      <img src="/imagenes/logo.png" alt="Logo de Freekiland 3D" class="logo-img" />
+      <img src="imagenes/logo.png" alt="Logo de Freekiland 3D" class="logo-img" />
     </div>
 
     <nav class="seccion-nav" id="menu-principal" aria-label="Menú principal">
-      <a href="/index.html">Inicio</a>
-      <a href="/paginas/servicios.html">Servicios</a>
-      <a href="/paginas/galeria.html">Galería</a>
-      <a href="/paginas/sobre-freekiland.html">Sobre Freekiland</a>
-      <a href="/paginas/contacto.html">Contacto</a>
+      <a href="index.html">Inicio</a>
+      <a href="paginas/servicios.html">Servicios</a>
+      <a href="paginas/galeria.html">Galería</a>
+      <a href="paginas/sobre-freekiland.html">Sobre Freekiland</a>
+      <a href="paginas/contacto.html">Contacto</a>
     </nav>
 
     <div class="seccion-contacto">
       <button type="button" id="enlace-carrito" class="enlace-carrito" aria-label="Abrir carrito">
-        <img src="/imagenes/carrito.png" alt="" class="carrito-img" />
+        <img src="imagenes/carrito.png" alt="" class="carrito-img" />
         <span id="contador-carrito" class="badge" aria-live="polite">0</span>
       </button>
       <button type="button" class="nav-toggle" aria-label="Abrir menú" aria-expanded="false" aria-controls="menu-principal">
@@ -167,7 +169,7 @@
         <div class="cta-banner reveal">
           <h2 class="vidaloka-regular">¿Empezamos tu proyecto?</h2>
           <p>Cuéntanos qué tienes en mente y te asesoramos sin compromiso.</p>
-          <a href="/paginas/contacto.html" class="boton-cta">Contactar ahora</a>
+          <a href="paginas/contacto.html" class="boton-cta">Contactar ahora</a>
         </div>
 
       </div>
@@ -178,17 +180,17 @@
   <footer class="footer">
     <div class="footer-grid">
       <div class="footer-marca">
-        <img src="/imagenes/logo.png" alt="" class="footer-logo" loading="lazy" />
+        <img src="imagenes/logo.png" alt="" class="footer-logo" loading="lazy" />
         <p class="footer-tagline">Estudio de diseño e impresión 3D en Sevilla. Convertimos ideas en piezas únicas desde 2014.</p>
       </div>
       <nav class="footer-nav" aria-label="Enlaces del pie de página">
         <p class="footer-titulo">Navegación</p>
         <div class="footer-nav-links">
-          <a href="/index.html">Inicio</a>
-          <a href="/paginas/servicios.html">Servicios</a>
-          <a href="/paginas/galeria.html">Galería</a>
-          <a href="/paginas/sobre-freekiland.html">Sobre Freekiland</a>
-          <a href="/paginas/contacto.html">Contacto</a>
+          <a href="index.html">Inicio</a>
+          <a href="paginas/servicios.html">Servicios</a>
+          <a href="paginas/galeria.html">Galería</a>
+          <a href="paginas/sobre-freekiland.html">Sobre Freekiland</a>
+          <a href="paginas/contacto.html">Contacto</a>
         </div>
       </nav>
       <div>
@@ -205,9 +207,11 @@
 
   <!-- El modal del carrito lo inyecta carrito-app.js (evita duplicarlo en cada página) -->
   <!-- Barba.js local: transiciones SPA con fundido entre páginas (degrada a navegación normal si falla) -->
-  <script src="/vendor/barba.umd.js" defer></script>
-  <script src="/assets/js/carrito-app.js" defer></script>
+  <script src="vendor/barba.umd.js" defer></script>
+  <script src="assets/js/carrito-app.js" defer></script>
 </body>
 </html>
+
+
 
 
